@@ -1,2 +1,2 @@
 # .NET_MiminalAPI
-Minimal APIs
+My playground to work with Minimal APIs
