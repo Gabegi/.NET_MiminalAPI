@@ -2,7 +2,7 @@
 
 namespace Infrastructure
 {
-    public class RandomProductRepository
+    public class RandomProductRepository : IRandomProductRepository
     {
         private readonly List<Product> _products;
         private readonly Random _random = new();
