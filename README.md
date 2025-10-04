@@ -8,17 +8,18 @@ Minimal APIs
 dotnet new web nameofproject
 ```
 
-=======
 My playground to work with Minimal APIs
 
 ## TODO: Improvements & Additions
 
 ### Architecture & Structure
+
 - [ ] DI container not configured - register services in Program.cs
 - [ ] Products endpoints not mapped in Program.cs:4
 - [ ] Missing appsettings.json for configuration
 
 ### Missing Functionality
+
 - [ ] No Customer/Order endpoints (entities exist but unused)
 - [ ] No repository implementations for Customer/Order
 - [ ] No validation (e.g., FluentValidation)
@@ -27,6 +28,7 @@ My playground to work with Minimal APIs
 - [ ] No database (currently in-memory only)
 
 ### API Improvements
+
 - [ ] No Swagger/OpenAPI documentation
 - [ ] No versioning
 - [ ] No pagination for GetAll
@@ -35,22 +37,26 @@ My playground to work with Minimal APIs
 - [ ] No authentication/authorization
 
 ### Code Quality
+
 - [ ] Namespace mismatch: Order/Customer/OrderItem use `EShop.Core.Entities` vs Product uses `Core.Entities`
 - [ ] ProductsEndpoints takes concrete `RandomProductRepository` instead of `IRandomProductRepository`
 - [ ] No input validation on endpoints
 - [ ] No unit tests
 
 ### Data Layer
+
 - [ ] Thread-safety issues in RandomProductRepository (List<T> not thread-safe)
 - [ ] No EF Core or real database
 - [ ] No migrations
 
 ### DevOps
+
 - [ ] No Docker support
 - [ ] No CI/CD pipeline
 - [ ] No health checks endpoint
 
 ### Missing Best Practices for .NET Minimal APIs
+
 - [ ] FluentValidation for request validation
 - [ ] MediatR/CQRS pattern for complex business logic
 - [ ] Result pattern instead of throwing exceptions
