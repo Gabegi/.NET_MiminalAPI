@@ -22,6 +22,7 @@ My playground to work with Minimal APIs
 
 - [ ] No Customer/Order endpoints (entities exist but unused)
 - [ ] No repository implementations for Customer/Order
+
 - [ ] No validation (e.g., FluentValidation)
 - [ ] No error handling/exception middleware
 - [ ] No logging configured
