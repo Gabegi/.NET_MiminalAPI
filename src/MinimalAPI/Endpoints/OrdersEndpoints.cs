@@ -1,5 +1,7 @@
 using EShop.Core.Entities;
 using Infrastructure;
+using MinimalAPI.Extensions;
+using MinimalAPI.Models.Requests;
 
 namespace MinimalAPI.Endpoints;
 
@@ -20,14 +22,29 @@ public static class OrdersEndpoints
         group.MapGet("/customer/{customerId}", (int customerId, IOrderRepository orderRepo) =>
             orderRepo.GetByCustomerId(customerId));
 
-        group.MapPost("/", (Order order, IOrderRepository orderRepo) =>
-            Results.Created($"/orders/{orderRepo.Add(order).Id}", order));
-
-        group.MapPut("/{id}", (int id, Order order, IOrderRepository orderRepo) =>
+        group.MapPost("/", (CreateOrderRequest request, IOrderRepository orderRepo) =>
         {
-            order.Id = id;
+            var order = new Order
+            {
+                CustomerId = request.CustomerId,
+                Items = request.Items
+            };
+            var created = orderRepo.Add(order);
+            return Results.Created($"/orders/{created.Id}", created);
+        })
+        .WithValidation<CreateOrderRequest>();
+
+        group.MapPut("/{id}", (int id, UpdateOrderRequest request, IOrderRepository orderRepo) =>
+        {
+            var order = new Order
+            {
+                Id = id,
+                CustomerId = request.CustomerId,
+                Items = request.Items
+            };
             return orderRepo.Update(order) ? Results.Ok(order) : Results.NotFound();
-        });
+        })
+        .WithValidation<UpdateOrderRequest>();
 
         group.MapDelete("/{id}", (int id, IOrderRepository orderRepo) =>
             orderRepo.Delete(id) ? Results.NoContent() : Results.NotFound());
