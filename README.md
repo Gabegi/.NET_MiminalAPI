@@ -1,5 +1,5 @@
 # .NET_MiminalAPI
-My playground to work with Minimal APIs
+A project to play with Minimal APIs
 
 # Create projects
 
