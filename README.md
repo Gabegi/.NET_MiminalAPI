@@ -11,6 +11,9 @@ My playground to work with Minimal APIs
 
 ## TODO: Improvements & Additions
 
+ - Auth
+- mapper
+
 ### Architecture & Structure
 
 - [ ] DI container not configured - register services in Program.cs
